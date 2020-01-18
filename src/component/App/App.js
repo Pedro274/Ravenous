@@ -17,17 +17,11 @@ const business = {
 
 const businesses = [business,business,business,business,business,business];
 
-class App extends React.Component {
-  render(){
-    return (
+export default class App extends React.Component {
+  render = () =>
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar />
         <BusinessList businesses={businesses}/>
       </div>
-    );
-  }
- 
 }
-
-export default App;

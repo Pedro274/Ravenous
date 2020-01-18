@@ -2,14 +2,13 @@ import React from 'react';
 import './Business.css';
 
 
-class Business extends React.Component {
+export default class Business extends React.Component {
     constructor(props){
         super(props);
         this.business = this.props.business
     }
    
-    render(){
-        return (
+    render = () =>
             <div className="Business">
                 <div className="image-container">
                     <img src={this.business.imageSrc} alt={this.business.name}/>
@@ -28,8 +27,5 @@ class Business extends React.Component {
                     </div>
                 </div>
             </div>
-        )
-    };
 }
 
-export default Business;
