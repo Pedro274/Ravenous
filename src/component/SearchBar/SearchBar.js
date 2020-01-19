@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchBar.css';
 
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
     
     constructor(props){
         super(props);
@@ -31,28 +31,27 @@ class SearchBar extends React.Component {
     renderSortByOptions(){
         return Object.keys(this.sortByOptions).map(sortByOption => {
             const sortByOptionValue = this.sortByOptions[sortByOption];
-            return <li key={sortByOptionValue} className={this.getSortByClass(sortByOptionValue)}>{sortByOption}</li>
+            return <li key={sortByOptionValue} 
+                       className={this.getSortByClass(sortByOptionValue)} 
+                       onClick={this.handleSortByChange.bind(this,sortByOptionValue)}>
+                      {sortByOption}</li>
         })
     };
 
-    render() {
-        return (
-                    <div className="SearchBar">
-                        <div className="SearchBar-sort-options">
-                            <ul>
-                                {this.renderSortByOptions()}
-                            </ul>
-                        </div>
-                        <div className="SearchBar-fields">
-                            <input placeholder="Search Businesses" />
-                            <input placeholder="Where?" />
-                        </div>
-                        <div className="SearchBar-submit">
-                            <a>Let's Go</a>
-                        </div>
-                    </div>
-                )
-            }
+    render = () =>
+        <div className="SearchBar">
+            <div className="SearchBar-sort-options">
+                <ul>
+                    {this.renderSortByOptions()}
+                </ul>
+            </div>
+            <div className="SearchBar-fields">
+                <input placeholder="Search Businesses" />
+                <input placeholder="Where?" />
+            </div>
+            <div className="SearchBar-submit">
+                <a>Let's Go</a>
+            </div>
+        </div>
 };
 
-export default SearchBar
